@@ -25,12 +25,20 @@ const QuotesApp = () => {
       }
       
       const addToFavorites = () => {
-        
-        setFavorites([...favorites,{
+        console.log(quote)
+        console.log(favorites)
+        const  isAlreadyInFavorites = favorites.some((operative) => {operative.text === quote.text && operative.author === quote.author})
+       // const isAlreadyInFavorites = favorites.some(
+         //   (fav) => fav.text === quote.text && fav.author === quote.author,
+          //)
+        console.log(isAlreadyInFavorites)
+        if (!isAlreadyInFavorites)
+            setFavorites([...favorites,{
             text: quote.text,
             author: quote.author
         }]);
-      }
+    }
+      
 
 
       const toggleFavorites = () => {
